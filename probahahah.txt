@@ -1,0 +1,2 @@
+halo,Mati,Radom,19-02-1997,C:\Users\Mattty\IdeaProjects\ProjektGUIv0.1\Zdjecia\gurl.jpg
+central park,Mati,Nowy Jork,19-02-1997,C:\Users\Mattty\Desktop\Moje własne 3.0\zdjecia\central park.jpg
