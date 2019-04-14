@@ -23,6 +23,7 @@ public class Main {
         JPanel mainPanel = new JPanel();
         JLabel inputLabel = new JLabel("You didn't type yet!");
 
+        //Text fields declarations
         JTextField imgNameTxtField = new JTextField();
         JTextField autorTxtField = new JTextField();
         JTextField localizationTxtField = new JTextField();
@@ -31,8 +32,7 @@ public class Main {
         JTextField tagsTxtField = new JTextField();
         JTextField filePathTxtField = new JTextField();
 
-        JButton saveTextButton = new JButton("Add image");
-
+        //Labels next to Text Fields declarations
         JLabel imgNameTxtFieldLbl = new JLabel("Name your image:");
         JLabel autorTxtFieldLbl = new JLabel("Autor:");
         JLabel localizationTxtFieldLbl = new JLabel("Localization:");
@@ -41,8 +41,12 @@ public class Main {
         JLabel tagsTxtFieldLbl = new JLabel("Tags seperated by space:");
         JLabel filePathTxtFieldLbl = new JLabel("Here will be file path:");
 
-        JFileChooser fileChooser = new JFileChooser();
+        //Buttons
+        JButton saveTextButton = new JButton("Add image");
         JButton chooseFileButton = new JButton("Wybierz obraz");
+        JButton printDataBaseButton = new JButton("Print data base");
+
+        JFileChooser fileChooser = new JFileChooser();
         //Positioning panel's elements
         mainPanel.setLayout(null);
         mainPanel.setBackground(Color.MAGENTA);
@@ -65,6 +69,8 @@ public class Main {
 
         saveTextButton.setBounds(filePathTxtField.getX(), filePathTxtField.getY() + filePathTxtField.getHeight(), 100, 40);
         chooseFileButton.setBounds(imgNameTxtField.getX(), imgNameTxtField.getY() - imgNameTxtField.getHeight(), 200, 40);
+        printDataBaseButton.setBounds(500, 100, 200, 40);
+
         inputLabel.setBounds(500, 210, 200, 40);
         mainPanel.add(saveTextButton);
         mainPanel.add(imgNameTxtField);
@@ -83,6 +89,7 @@ public class Main {
         mainPanel.add(fileNameTxtFieldLbl);
         mainPanel.add(tagsTxtFieldLbl);
         mainPanel.add(filePathTxtFieldLbl);
+        mainPanel.add(printDataBaseButton);
 
 
         //Saving text button functions
@@ -101,12 +108,21 @@ public class Main {
             }
         });
 
+        //image choosing button functions
         chooseFileButton.addActionListener(event -> fileChooser.showOpenDialog(mainFrame));
         fileChooser.addActionListener(event -> {
             String path = fileChooser.getSelectedFile().getPath();
             String fileName = fileChooser.getSelectedFile().getName();
             filePathTxtField.setText(path);
             imgNameTxtField.setText(fileName);
+        });
+
+        printDataBaseButton.addActionListener(e -> {
+            try {
+                new ImgDataBaseManager().printDataBase(fileNameTxtField.getText());
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         });
 
 

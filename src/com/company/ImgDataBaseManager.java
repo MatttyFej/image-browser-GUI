@@ -1,7 +1,9 @@
 package com.company;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,6 +20,17 @@ public class ImgDataBaseManager {
         throws IOException {
         Path filePath = Paths.get(fileName);
         Files.write(filePath, Arrays.asList(imgInfo), Files.exists(filePath) ? StandardOpenOption.APPEND : StandardOpenOption.CREATE);
+
+    }
+
+    public void printDataBase (String fileName) throws IOException{
+        File file = new File(fileName);
+
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String currentLine;
+        while ((currentLine = br.readLine()) != null){
+            System.out.println(currentLine);
+        }
 
     }
 }
