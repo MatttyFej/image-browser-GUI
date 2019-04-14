@@ -46,7 +46,7 @@ public class Main {
         //Positioning panel's elements
         mainPanel.setLayout(null);
         mainPanel.setBackground(Color.MAGENTA);
-
+        //positioning Text Fieldss
         imgNameTxtField.setBounds(250, 100, 200, 40);
         autorTxtField.setBounds(imgNameTxtField.getX(), imgNameTxtField.getY() + imgNameTxtField.getHeight(), 200, 40);
         localizationTxtField.setBounds(imgNameTxtField.getX(), autorTxtField.getY() + autorTxtField.getHeight(), 200, 40);
@@ -54,7 +54,7 @@ public class Main {
         fileNameTxtField.setBounds(imgNameTxtField.getX(), dateTxtField.getY() + dateTxtField.getHeight(), 200, 40);
         tagsTxtField.setBounds(imgNameTxtField.getX(), fileNameTxtField.getY() + fileNameTxtField.getHeight(), 200, 40);
         filePathTxtField.setBounds(imgNameTxtField.getX(), tagsTxtField.getY() + tagsTxtField.getHeight(), 200, 40);
-
+        //positioning Labels next to Text Fieldss
         imgNameTxtFieldLbl.setBounds(imgNameTxtField.getX() - 150, imgNameTxtField.getY(), 200, 40);
         autorTxtFieldLbl.setBounds(imgNameTxtFieldLbl.getX(), imgNameTxtFieldLbl.getY() + imgNameTxtFieldLbl.getHeight(), 200, 40);
         localizationTxtFieldLbl.setBounds(imgNameTxtFieldLbl.getX(), autorTxtFieldLbl.getY() + autorTxtFieldLbl.getHeight(), 200, 40);
