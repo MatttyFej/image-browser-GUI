@@ -125,6 +125,15 @@ public class Main {
             }
         });
 
+        //this button is not created yet
+        /*loadDataBaseButton.addActionListener(e -> {
+            try {
+                System.out.println(new ImgDataBaseManager().dataBaseToString(fileNameTxtField.getText()));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });*/
+
 
         //creating and setting main frame
         Dimension screenDim = Toolkit.getDefaultToolkit().getScreenSize();

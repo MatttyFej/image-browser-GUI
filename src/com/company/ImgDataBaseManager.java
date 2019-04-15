@@ -33,4 +33,17 @@ public class ImgDataBaseManager {
         }
 
     }
+
+    public String dataBaseToString (String fileName) throws IOException{
+        File file = new File(fileName);
+
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String dataBaseStr = "";
+        String currentLine;
+        while ((currentLine = br.readLine()) != null){
+            dataBaseStr += currentLine + "\n";
+        }
+        return dataBaseStr;
+
+    }
 }
