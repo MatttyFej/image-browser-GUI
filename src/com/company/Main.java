@@ -121,7 +121,11 @@ public class Main {
         });
 
         printDataBaseButton.addActionListener(e -> {
-            new ImgDataBaseManager().printDataBase();
+            try {
+                new ImgDataBaseManager().printDataBase();
+            } catch (Exception e1) {
+                JOptionPane.showMessageDialog(mainFrame, "Nie wczytano żadnej bazy danych!");
+            }
         });
 
         //this button is not created yet

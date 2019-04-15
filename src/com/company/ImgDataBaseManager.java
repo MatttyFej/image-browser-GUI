@@ -55,6 +55,7 @@ public class ImgDataBaseManager {
     }
 
     public String dataBaseToString (String fileName) throws IOException{
+        dataBaseHolder = "";
         File file = new File(fileName);
 
         BufferedReader br = new BufferedReader(new FileReader(file));
