@@ -43,8 +43,9 @@ public class Main {
 
         //Buttons
         JButton saveTextButton = new JButton("Add image");
-        JButton chooseFileButton = new JButton("Wybierz obraz");
+        JButton chooseFileButton = new JButton("Choose image");
         JButton printDataBaseButton = new JButton("Print data base");
+        JButton loadDataBaseButton = new JButton("Load data base");
 
         JFileChooser fileChooser = new JFileChooser();
         //Positioning panel's elements
@@ -69,7 +70,8 @@ public class Main {
 
         saveTextButton.setBounds(filePathTxtField.getX(), filePathTxtField.getY() + filePathTxtField.getHeight(), 100, 40);
         chooseFileButton.setBounds(imgNameTxtField.getX(), imgNameTxtField.getY() - imgNameTxtField.getHeight(), 200, 40);
-        printDataBaseButton.setBounds(500, 100, 200, 40);
+        loadDataBaseButton.setBounds(500, 100, 200, 40);
+        printDataBaseButton.setBounds(500, loadDataBaseButton.getY()+loadDataBaseButton.getHeight(), 200, 40);
 
         inputLabel.setBounds(500, 210, 200, 40);
         mainPanel.add(saveTextButton);
@@ -90,6 +92,7 @@ public class Main {
         mainPanel.add(tagsTxtFieldLbl);
         mainPanel.add(filePathTxtFieldLbl);
         mainPanel.add(printDataBaseButton);
+        mainPanel.add(loadDataBaseButton);
 
 
         //Saving text button functions
@@ -118,21 +121,21 @@ public class Main {
         });
 
         printDataBaseButton.addActionListener(e -> {
-            try {
-                new ImgDataBaseManager().printDataBase(fileNameTxtField.getText());
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+            new ImgDataBaseManager().printDataBase();
         });
 
         //this button is not created yet
-        /*loadDataBaseButton.addActionListener(e -> {
+        loadDataBaseButton.addActionListener(e -> {
+            boolean isSuccesful = true;
             try {
-                System.out.println(new ImgDataBaseManager().dataBaseToString(fileNameTxtField.getText()));
+                new ImgDataBaseManager().dataBaseToString(fileNameTxtField.getText());
             } catch (IOException e1) {
-                e1.printStackTrace();
+                JOptionPane.showMessageDialog(mainFrame, "Nie znaleziono pliku o (nie)podanej nazwie!");
+                isSuccesful = false;
             }
-        });*/
+            if(isSuccesful)
+                inputLabel.setText("Data base succesfully loaded");
+        });
 
 
         //creating and setting main frame

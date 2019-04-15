@@ -9,8 +9,19 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ImgDataBaseManager {
+
+    private static String dataBaseHolder;
+
+    public String getDataBaseHolder() {
+        return dataBaseHolder;
+    }
+
+    public void setDataBaseHolder(String dataBaseHolder) {
+        this.dataBaseHolder = dataBaseHolder;
+    }
 
     public String collectImgInfo(String imgName, String autor, String localization, String date, String tags, String path){
         return imgName + "," + autor + "," + localization + "," + date + "," + tags + "," + path;
@@ -23,7 +34,7 @@ public class ImgDataBaseManager {
 
     }
 
-    public void printDataBase (String fileName) throws IOException{
+    /*public void printDataBase (String fileName) throws IOException{
         File file = new File(fileName);
 
         BufferedReader br = new BufferedReader(new FileReader(file));
@@ -31,19 +42,33 @@ public class ImgDataBaseManager {
         while ((currentLine = br.readLine()) != null){
             System.out.println(currentLine);
         }
+        br.close();
 
+    }*/
+
+    public void printDataBase () {
+        Scanner scanner = new Scanner(dataBaseHolder);
+        while(scanner.hasNextLine()){
+            System.out.println(scanner.nextLine());
+        }
+        scanner.close();
     }
 
     public String dataBaseToString (String fileName) throws IOException{
         File file = new File(fileName);
 
         BufferedReader br = new BufferedReader(new FileReader(file));
-        String dataBaseStr = "";
         String currentLine;
         while ((currentLine = br.readLine()) != null){
-            dataBaseStr += currentLine + "\n";
+            dataBaseHolder += currentLine + "\n";
         }
-        return dataBaseStr;
+        br.close();
+        return dataBaseHolder;
 
+    }
+
+    public void saveDataBaseToFile (String fileName, String dataBase) throws IOException{
+        Path filePath = Paths.get(fileName);
+        Files.write(filePath, Arrays.asList(dataBase), Files.exists(filePath) ? StandardOpenOption.APPEND : StandardOpenOption.CREATE);
     }
 }
