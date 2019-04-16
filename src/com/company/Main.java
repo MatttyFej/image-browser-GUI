@@ -31,6 +31,7 @@ public class Main {
         JTextField fileNameTxtField = new JTextField();
         JTextField tagsTxtField = new JTextField();
         JTextField filePathTxtField = new JTextField();
+        JTextField findByTagTextFiled = new JTextField("specify tag");
 
         //Labels next to Text Fields declarations
         JLabel imgNameTxtFieldLbl = new JLabel("Name your image:");
@@ -46,6 +47,7 @@ public class Main {
         JButton chooseFileButton = new JButton("Choose image");
         JButton printDataBaseButton = new JButton("Print data base");
         JButton loadDataBaseButton = new JButton("Load data base");
+        JButton findByTagButton = new JButton("Print images with specified tag");
 
         JFileChooser fileChooser = new JFileChooser();
         //Positioning panel's elements
@@ -59,6 +61,7 @@ public class Main {
         fileNameTxtField.setBounds(imgNameTxtField.getX(), dateTxtField.getY() + dateTxtField.getHeight(), 200, 40);
         tagsTxtField.setBounds(imgNameTxtField.getX(), fileNameTxtField.getY() + fileNameTxtField.getHeight(), 200, 40);
         filePathTxtField.setBounds(imgNameTxtField.getX(), tagsTxtField.getY() + tagsTxtField.getHeight(), 200, 40);
+        findByTagTextFiled.setBounds(500, 300, 200, 40);
         //positioning Labels next to Text Fieldss
         imgNameTxtFieldLbl.setBounds(imgNameTxtField.getX() - 150, imgNameTxtField.getY(), 200, 40);
         autorTxtFieldLbl.setBounds(imgNameTxtFieldLbl.getX(), imgNameTxtFieldLbl.getY() + imgNameTxtFieldLbl.getHeight(), 200, 40);
@@ -72,6 +75,7 @@ public class Main {
         chooseFileButton.setBounds(imgNameTxtField.getX(), imgNameTxtField.getY() - imgNameTxtField.getHeight(), 200, 40);
         loadDataBaseButton.setBounds(500, 100, 200, 40);
         printDataBaseButton.setBounds(500, loadDataBaseButton.getY()+loadDataBaseButton.getHeight(), 200, 40);
+        findByTagButton.setBounds(500, findByTagTextFiled.getY() + findByTagTextFiled.getHeight(), 280, 40);
 
         inputLabel.setBounds(500, 210, 200, 40);
         mainPanel.add(saveTextButton);
@@ -93,6 +97,8 @@ public class Main {
         mainPanel.add(filePathTxtFieldLbl);
         mainPanel.add(printDataBaseButton);
         mainPanel.add(loadDataBaseButton);
+        mainPanel.add(findByTagTextFiled);
+        mainPanel.add(findByTagButton);
 
 
         //Saving text button functions
@@ -140,6 +146,10 @@ public class Main {
             }
             if(isSuccesful)
                 inputLabel.setText("Data base succesfully loaded");
+        });
+
+        findByTagButton.addActionListener(e -> {
+            new ImgDataBaseManager().printImgListWithSpecifiedTag(findByTagTextFiled.getText());
         });
 
 

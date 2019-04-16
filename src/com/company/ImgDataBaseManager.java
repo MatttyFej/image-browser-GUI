@@ -10,6 +10,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ImgDataBaseManager {
 
@@ -34,18 +36,6 @@ public class ImgDataBaseManager {
 
     }
 
-    /*public void printDataBase (String fileName) throws IOException{
-        File file = new File(fileName);
-
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        String currentLine;
-        while ((currentLine = br.readLine()) != null){
-            System.out.println(currentLine);
-        }
-        br.close();
-
-    }*/
-
     public void printDataBase () {
         Scanner scanner = new Scanner(dataBaseHolder);
         while(scanner.hasNextLine()){
@@ -69,5 +59,24 @@ public class ImgDataBaseManager {
     public void saveDataBaseToFile (String fileName, String dataBase) throws IOException{
         Path filePath = Paths.get(fileName);
         Files.write(filePath, Arrays.asList(dataBase), Files.exists(filePath) ? StandardOpenOption.APPEND : StandardOpenOption.CREATE);
+    }
+
+    public String getTags (String dataBaseLine){
+        Pattern pattern = Pattern.compile("(.*),(.*),(.*),(.*),(.*),(.*)");
+        Matcher matcher = pattern.matcher(dataBaseLine);
+        matcher.matches();
+        return matcher.group(5);
+    }
+
+    public void printImgListWithSpecifiedTag (String tag){
+        Scanner dtbScanner = new Scanner(getDataBaseHolder());
+        String currentLine = "";
+        while(dtbScanner.hasNextLine()){
+            currentLine = dtbScanner.nextLine();
+            String dtbTags = getTags(currentLine);
+            boolean containsTag = dtbTags.toLowerCase().contains(tag.toLowerCase());
+            if(containsTag)
+                System.out.println(currentLine);
+        }
     }
 }
