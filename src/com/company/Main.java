@@ -124,6 +124,7 @@ public class Main {
             try {
                 new ImgDataBaseManager().printDataBase();
             } catch (Exception e1) {
+                e1.printStackTrace();
                 JOptionPane.showMessageDialog(mainFrame, "Nie wczytano żadnej bazy danych!");
             }
         });
@@ -132,7 +133,7 @@ public class Main {
         loadDataBaseButton.addActionListener(e -> {
             boolean isSuccesful = true;
             try {
-                new ImgDataBaseManager().dataBaseToString(fileNameTxtField.getText());
+                new ImgDataBaseManager().loadDataBaseToString(fileNameTxtField.getText());
             } catch (IOException e1) {
                 JOptionPane.showMessageDialog(mainFrame, "Nie znaleziono pliku o (nie)podanej nazwie!");
                 isSuccesful = false;

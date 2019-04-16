@@ -54,7 +54,7 @@ public class ImgDataBaseManager {
         scanner.close();
     }
 
-    public String dataBaseToString (String fileName) throws IOException{
+    public void loadDataBaseToString(String fileName) throws IOException{
         dataBaseHolder = "";
         File file = new File(fileName);
 
@@ -64,8 +64,6 @@ public class ImgDataBaseManager {
             dataBaseHolder += currentLine + "\n";
         }
         br.close();
-        return dataBaseHolder;
-
     }
 
     public void saveDataBaseToFile (String fileName, String dataBase) throws IOException{
