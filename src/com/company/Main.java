@@ -21,6 +21,7 @@ public class Main {
         //declaring components of the main frame
         JFrame mainFrame = new JFrame();
         JPanel mainPanel = new JPanel();
+        JPanel menuPanel = new JPanel();
         JLabel inputLabel = new JLabel("You didn't type yet!");
 
         //Text fields declarations
@@ -48,6 +49,7 @@ public class Main {
         JButton printDataBaseButton = new JButton("Print data base");
         JButton loadDataBaseButton = new JButton("Load data base");
         JButton findByTagButton = new JButton("Print images with specified tag");
+        JButton goToMenuButton = new JButton("Menu");
 
         JFileChooser fileChooser = new JFileChooser();
         //Positioning panel's elements
@@ -76,6 +78,7 @@ public class Main {
         loadDataBaseButton.setBounds(500, 100, 200, 40);
         printDataBaseButton.setBounds(500, loadDataBaseButton.getY()+loadDataBaseButton.getHeight(), 200, 40);
         findByTagButton.setBounds(500, findByTagTextFiled.getY() + findByTagTextFiled.getHeight(), 280, 40);
+        goToMenuButton.setBounds(500, 400, 200, 40);
 
         inputLabel.setBounds(500, 210, 200, 40);
         mainPanel.add(saveTextButton);
@@ -99,6 +102,7 @@ public class Main {
         mainPanel.add(loadDataBaseButton);
         mainPanel.add(findByTagTextFiled);
         mainPanel.add(findByTagButton);
+        mainPanel.add(goToMenuButton);
 
 
         //Saving text button functions
@@ -152,13 +156,30 @@ public class Main {
             new ImgDataBaseManager().printImgListWithSpecifiedTag(findByTagTextFiled.getText());
         });
 
+        goToMenuButton.addActionListener(e -> {
+            mainFrame.setContentPane(menuPanel);
+            mainFrame.repaint();
+            mainFrame.revalidate();
+        });
+
 
         //creating and setting main frame
         Dimension screenDim = Toolkit.getDefaultToolkit().getScreenSize();
         mainFrame.setSize(screenDim.width/2, screenDim.height/2);
-        mainFrame.setContentPane(mainPanel);
+        mainFrame.setContentPane(menuPanel);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setVisible(true);
+
+        //menu Panel
+        JButton functionsButton = new JButton("Actual fucntions");
+
+        menuPanel.add(functionsButton);
+
+        functionsButton.addActionListener(e -> {
+            mainFrame.setContentPane(mainPanel);
+            mainFrame.repaint();
+            mainFrame.revalidate();
+        });
 
     }
 }
