@@ -22,6 +22,7 @@ public class Main {
         JFrame mainFrame = new JFrame();
         JPanel mainPanel = new JPanel();
         JPanel menuPanel = new JPanel();
+        JPanel displayImagePanel = new JPanel();
         JLabel inputLabel = new JLabel("You didn't type yet!");
 
         //Text fields declarations
@@ -172,14 +173,33 @@ public class Main {
 
         //menu Panel
         JButton functionsButton = new JButton("Actual fucntions");
+        JButton displayImageButton = new JButton("Display image");
 
+        functionsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        displayImageButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
         menuPanel.add(functionsButton);
+        menuPanel.add(displayImageButton);
 
         functionsButton.addActionListener(e -> {
             mainFrame.setContentPane(mainPanel);
             mainFrame.repaint();
             mainFrame.revalidate();
         });
+
+        displayImageButton.addActionListener(e -> {
+            mainFrame.setContentPane(displayImagePanel);
+            mainFrame.repaint();
+            mainFrame.revalidate();
+        });
+
+        //display image panel
+        ImageIcon icon = new ImageIcon("C:\\Users\\Mattty\\IdeaProjects\\ProjektGUIv0.1\\Zdjecia\\gurl.jpg");
+        JLabel imageLabel = new JLabel(icon);
+        imageLabel.setPreferredSize(new Dimension(300, 300));
+
+        displayImagePanel.add(imageLabel);
 
     }
 }
