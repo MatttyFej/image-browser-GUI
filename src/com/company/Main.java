@@ -52,6 +52,7 @@ public class Main {
         JButton findByTagButton = new JButton("Print images with specified tag");
         JButton goToMenuButton = new JButton("Menu");
 
+
         JFileChooser fileChooser = new JFileChooser();
         //Positioning panel's elements
         mainPanel.setLayout(null);
@@ -188,18 +189,31 @@ public class Main {
             mainFrame.revalidate();
         });
 
+        ImageIcon icon = new ImageIcon("C:\\Users\\Mattty\\Desktop\\Moje własne 3.0\\zdjecia\\maxresdefault.jpg");
+        JLabel imageLabel = new JLabel(icon);
+        JButton imageLabelToMenuButton = new JButton("Back to menu");
+        imageLabel.setPreferredSize(new Dimension(icon.getIconWidth(), icon.getIconHeight()));
+
+        displayImagePanel.setLayout(new BoxLayout(displayImagePanel, BoxLayout.Y_AXIS));
+
+        displayImagePanel.add(imageLabel);
+        displayImagePanel.add(imageLabelToMenuButton);
+
         displayImageButton.addActionListener(e -> {
+            mainFrame.setSize(icon.getIconWidth(), icon.getIconHeight() + 100);
             mainFrame.setContentPane(displayImagePanel);
             mainFrame.repaint();
             mainFrame.revalidate();
         });
 
-        //display image panel
-        ImageIcon icon = new ImageIcon("C:\\Users\\Mattty\\IdeaProjects\\ProjektGUIv0.1\\Zdjecia\\gurl.jpg");
-        JLabel imageLabel = new JLabel(icon);
-        imageLabel.setPreferredSize(new Dimension(300, 300));
+        imageLabelToMenuButton.addActionListener(e -> {
+            mainFrame.setContentPane(menuPanel);
+            mainFrame.repaint();
+            mainFrame.revalidate();
+        });
 
-        displayImagePanel.add(imageLabel);
+        //display image panel
+
 
     }
 }
