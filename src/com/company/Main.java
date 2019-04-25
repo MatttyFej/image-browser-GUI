@@ -22,6 +22,7 @@ public class Main {
         JFrame mainFrame = new JFrame();
         JPanel mainPanel = new JPanel();
         JPanel menuPanel = new JPanel();
+        JPanel dataBasePanel = new JPanel();
         JPanel displayImagePanel = new JPanel();
         JLabel inputLabel = new JLabel("You didn't type yet!");
 
@@ -50,10 +51,12 @@ public class Main {
         JButton printDataBaseButton = new JButton("Print data base");
         JButton loadDataBaseButton = new JButton("Load data base");
         JButton findByTagButton = new JButton("Print images with specified tag");
+        JButton upgradedPrintDataBaseButton = new JButton("Actually print data base");
         JButton goToMenuButton = new JButton("Menu");
 
 
         JFileChooser fileChooser = new JFileChooser();
+        JTextArea printedDataBaseTextArea = new JTextArea("Here you'll see data base");
         //Positioning panel's elements
         mainPanel.setLayout(null);
         mainPanel.setBackground(Color.MAGENTA);
@@ -79,6 +82,7 @@ public class Main {
         chooseFileButton.setBounds(imgNameTxtField.getX(), imgNameTxtField.getY() - imgNameTxtField.getHeight(), 200, 40);
         loadDataBaseButton.setBounds(500, 100, 200, 40);
         printDataBaseButton.setBounds(500, loadDataBaseButton.getY()+loadDataBaseButton.getHeight(), 200, 40);
+        upgradedPrintDataBaseButton.setBounds(printDataBaseButton.getX() + printDataBaseButton.getWidth(), printDataBaseButton.getY(), 200 , 40);
         findByTagButton.setBounds(500, findByTagTextFiled.getY() + findByTagTextFiled.getHeight(), 280, 40);
         goToMenuButton.setBounds(500, 400, 200, 40);
 
@@ -105,6 +109,7 @@ public class Main {
         mainPanel.add(findByTagTextFiled);
         mainPanel.add(findByTagButton);
         mainPanel.add(goToMenuButton);
+        mainPanel.add(upgradedPrintDataBaseButton);
 
 
         //Saving text button functions
@@ -139,6 +144,14 @@ public class Main {
                 e1.printStackTrace();
                 JOptionPane.showMessageDialog(mainFrame, "Nie wczytano żadnej bazy danych!");
             }
+        });
+
+        //printing data base in TextArea
+        upgradedPrintDataBaseButton.addActionListener(e -> {
+            printedDataBaseTextArea.setText(new ImgDataBaseManager().getDataBaseHolder());
+            mainFrame.setContentPane(dataBasePanel);
+            mainFrame.repaint();
+            mainFrame.revalidate();
         });
 
         //this button is not created yet
@@ -212,7 +225,10 @@ public class Main {
             mainFrame.revalidate();
         });
 
-        //display image panel
+        //display data base panel
+        dataBasePanel.add(goToMenuButton);
+        dataBasePanel.add(printedDataBaseTextArea);
+
 
 
     }

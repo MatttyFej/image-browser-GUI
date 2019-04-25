@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6bb0e559-c6cd-44c8-900b-6754038089b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektGUIv0.1/com/company/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektGUIv0.1/com/company/Main$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektGUIv0.1/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektGUIv0.1/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nowaApka.txt" beforeDir="false" afterPath="$PROJECT_DIR$/nowaApka.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="196" column="85" selection-start-line="196" selection-start-column="85" selection-end-line="196" selection-end-column="85" />
+            <state relative-caret-position="268">
+              <caret line="152" column="35" selection-start-line="152" selection-start-column="35" selection-end-line="152" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#313#314#0" expanded="true" />
@@ -163,8 +162,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="196" column="85" selection-start-line="196" selection-start-column="85" selection-end-line="196" selection-end-column="85" />
+        <state relative-caret-position="268">
+          <caret line="152" column="35" selection-start-line="152" selection-start-column="35" selection-end-line="152" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#313#314#0" expanded="true" />
