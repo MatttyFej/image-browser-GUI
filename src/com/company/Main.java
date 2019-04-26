@@ -35,6 +35,8 @@ public class Main {
         JTextField tagsTxtField = new JTextField();
         JTextField filePathTxtField = new JTextField();
         JTextField findByTagTextFiled = new JTextField("specify tag");
+        JTextField saveDataBaseToFileTextField = new JTextField("File name");
+        JTextField loadDataBaseTextField = new JTextField("File name");
 
         //Labels next to Text Fields declarations
         JLabel imgNameTxtFieldLbl = new JLabel("Name your image:");
@@ -45,6 +47,7 @@ public class Main {
         JLabel tagsTxtFieldLbl = new JLabel("Tags seperated by space:");
         JLabel filePathTxtFieldLbl = new JLabel("Here will be file path:");
 
+
         //Buttons
         JButton saveTextButton = new JButton("Add image");
         JButton chooseFileButton = new JButton("Choose image");
@@ -53,6 +56,7 @@ public class Main {
         JButton findByTagButton = new JButton("Print images with specified tag");
         JButton upgradedPrintDataBaseButton = new JButton("Actually print data base");
         JButton goToMenuButton = new JButton("Menu");
+        JButton saveDataBaseToFileButon = new JButton("Save data base to file");
 
 
         JFileChooser fileChooser = new JFileChooser();
@@ -69,6 +73,7 @@ public class Main {
         tagsTxtField.setBounds(imgNameTxtField.getX(), fileNameTxtField.getY() + fileNameTxtField.getHeight(), 200, 40);
         filePathTxtField.setBounds(imgNameTxtField.getX(), tagsTxtField.getY() + tagsTxtField.getHeight(), 200, 40);
         findByTagTextFiled.setBounds(500, 300, 200, 40);
+
         //positioning Labels next to Text Fieldss
         imgNameTxtFieldLbl.setBounds(imgNameTxtField.getX() - 150, imgNameTxtField.getY(), 200, 40);
         autorTxtFieldLbl.setBounds(imgNameTxtFieldLbl.getX(), imgNameTxtFieldLbl.getY() + imgNameTxtFieldLbl.getHeight(), 200, 40);
@@ -77,14 +82,19 @@ public class Main {
         fileNameTxtFieldLbl.setBounds(imgNameTxtFieldLbl.getX(), dateTxtFieldLbl.getY() + dateTxtFieldLbl.getHeight(), 200, 40);
         tagsTxtFieldLbl.setBounds(imgNameTxtFieldLbl.getX(), fileNameTxtFieldLbl.getY() + fileNameTxtFieldLbl.getHeight(), 200, 40);
         filePathTxtFieldLbl.setBounds(imgNameTxtFieldLbl.getX(), tagsTxtFieldLbl.getY() + tagsTxtFieldLbl.getHeight(), 200, 40);
-
+        //positioning buttons
         saveTextButton.setBounds(filePathTxtField.getX(), filePathTxtField.getY() + filePathTxtField.getHeight(), 100, 40);
         chooseFileButton.setBounds(imgNameTxtField.getX(), imgNameTxtField.getY() - imgNameTxtField.getHeight(), 200, 40);
+        //load data base button and text field
         loadDataBaseButton.setBounds(500, 100, 200, 40);
+        loadDataBaseTextField.setBounds(loadDataBaseButton.getX(), loadDataBaseButton.getY() - loadDataBaseButton.getHeight(), loadDataBaseButton.getWidth(), loadDataBaseButton.getHeight());
         printDataBaseButton.setBounds(500, loadDataBaseButton.getY()+loadDataBaseButton.getHeight(), 200, 40);
         upgradedPrintDataBaseButton.setBounds(printDataBaseButton.getX() + printDataBaseButton.getWidth(), printDataBaseButton.getY(), 200 , 40);
         findByTagButton.setBounds(500, findByTagTextFiled.getY() + findByTagTextFiled.getHeight(), 280, 40);
         goToMenuButton.setBounds(500, 400, 200, 40);
+        // save data base button and text field
+        saveDataBaseToFileButon.setBounds(loadDataBaseButton.getX() + loadDataBaseButton.getWidth(), loadDataBaseButton.getY(), 200, 40);
+        saveDataBaseToFileTextField.setBounds(saveDataBaseToFileButon.getX(), saveDataBaseToFileButon.getY() - saveDataBaseToFileButon.getHeight(), 200, 40);
 
         inputLabel.setBounds(500, 210, 200, 40);
         mainPanel.add(saveTextButton);
@@ -110,6 +120,9 @@ public class Main {
         mainPanel.add(findByTagButton);
         mainPanel.add(goToMenuButton);
         mainPanel.add(upgradedPrintDataBaseButton);
+        mainPanel.add(saveDataBaseToFileButon);
+        mainPanel.add(saveDataBaseToFileTextField);
+        mainPanel.add(loadDataBaseTextField);
 
 
         //Saving text button functions
@@ -158,13 +171,22 @@ public class Main {
         loadDataBaseButton.addActionListener(e -> {
             boolean isSuccesful = true;
             try {
-                new ImgDataBaseManager().loadDataBaseToString(fileNameTxtField.getText());
+                new ImgDataBaseManager().loadDataBaseToString(loadDataBaseTextField.getText());
             } catch (IOException e1) {
                 JOptionPane.showMessageDialog(mainFrame, "Nie znaleziono pliku o (nie)podanej nazwie!");
                 isSuccesful = false;
             }
             if(isSuccesful)
                 inputLabel.setText("Data base succesfully loaded");
+        });
+
+        saveDataBaseToFileButon.addActionListener(e -> {
+            try {
+                ImgDataBaseManager manager = new ImgDataBaseManager();
+                manager.saveDataBaseToFile(saveDataBaseToFileTextField.getText(), manager.getDataBaseHolder());
+            } catch (IOException e1) {
+                JOptionPane.showMessageDialog(mainFrame, "Something went horribly wrong");
+            }
         });
 
         findByTagButton.addActionListener(e -> {
