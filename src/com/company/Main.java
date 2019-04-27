@@ -18,13 +18,13 @@ public class Main {
     }
 
     public static void createAndShowGUI() {
-        //declaring components of the main frame
         JFrame mainFrame = new JFrame();
         JPanel mainPanel = new JPanel();
         JPanel menuPanel = new JPanel();
+        JPanel addImagePanel = new JPanel();
         JPanel dataBasePanel = new JPanel();
         JPanel displayImagePanel = new JPanel();
-        JLabel inputLabel = new JLabel("You didn't type yet!");
+        JLabel inputLabel = new JLabel("You didn't do anything yet!");
 
         //Text fields declarations
         JTextField imgNameTxtField = new JTextField();
@@ -49,7 +49,7 @@ public class Main {
 
 
         //Buttons
-        JButton saveTextButton = new JButton("Add image");
+        JButton addImageButton = new JButton("Add image");
         JButton chooseFileButton = new JButton("Choose image");
         JButton printDataBaseButton = new JButton("Print data base");
         JButton loadDataBaseButton = new JButton("Load data base");
@@ -59,8 +59,10 @@ public class Main {
         JButton saveDataBaseToFileButon = new JButton("Save data base to file");
 
 
+
         JFileChooser fileChooser = new JFileChooser();
         JTextArea printedDataBaseTextArea = new JTextArea("Here you'll see data base");
+        printedDataBaseTextArea.setBackground(null);
         //Positioning panel's elements
         mainPanel.setLayout(null);
         mainPanel.setBackground(Color.MAGENTA);
@@ -83,7 +85,7 @@ public class Main {
         tagsTxtFieldLbl.setBounds(imgNameTxtFieldLbl.getX(), fileNameTxtFieldLbl.getY() + fileNameTxtFieldLbl.getHeight(), 200, 40);
         filePathTxtFieldLbl.setBounds(imgNameTxtFieldLbl.getX(), tagsTxtFieldLbl.getY() + tagsTxtFieldLbl.getHeight(), 200, 40);
         //positioning buttons
-        saveTextButton.setBounds(filePathTxtField.getX(), filePathTxtField.getY() + filePathTxtField.getHeight(), 100, 40);
+        addImageButton.setBounds(filePathTxtField.getX(), filePathTxtField.getY() + filePathTxtField.getHeight(), 100, 40);
         chooseFileButton.setBounds(imgNameTxtField.getX(), imgNameTxtField.getY() - imgNameTxtField.getHeight(), 200, 40);
         //load data base button and text field
         loadDataBaseButton.setBounds(500, 100, 200, 40);
@@ -97,23 +99,8 @@ public class Main {
         saveDataBaseToFileTextField.setBounds(saveDataBaseToFileButon.getX(), saveDataBaseToFileButon.getY() - saveDataBaseToFileButon.getHeight(), 200, 40);
 
         inputLabel.setBounds(500, 210, 200, 40);
-        mainPanel.add(saveTextButton);
-        mainPanel.add(imgNameTxtField);
-        mainPanel.add(autorTxtField);
-        mainPanel.add(localizationTxtField);
-        mainPanel.add(dateTxtField);
-        mainPanel.add(fileNameTxtField);
-        mainPanel.add(tagsTxtField);
-        mainPanel.add(filePathTxtField);
+
         mainPanel.add(inputLabel);
-        mainPanel.add(chooseFileButton);
-        mainPanel.add(imgNameTxtFieldLbl);
-        mainPanel.add(autorTxtFieldLbl);
-        mainPanel.add(localizationTxtFieldLbl);
-        mainPanel.add(dateTxtFieldLbl);
-        mainPanel.add(fileNameTxtFieldLbl);
-        mainPanel.add(tagsTxtFieldLbl);
-        mainPanel.add(filePathTxtFieldLbl);
         mainPanel.add(printDataBaseButton);
         mainPanel.add(loadDataBaseButton);
         mainPanel.add(findByTagTextFiled);
@@ -126,7 +113,7 @@ public class Main {
 
 
         //Saving text button functions
-        saveTextButton.addActionListener(new ActionListener() {
+        addImageButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //String imgDataLine = "\n" + imgNameTxtField.getText() + "," + autorTxtField.getText() + "," + localizationTxtField.getText() + "," + dateTxtField.getText() + "\n";
@@ -210,13 +197,16 @@ public class Main {
         //menu Panel
         JButton functionsButton = new JButton("Actual fucntions");
         JButton displayImageButton = new JButton("Display image");
+        JButton addImageMenuButton = new JButton("Add image");
 
         functionsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         displayImageButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        addImageMenuButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
         menuPanel.add(functionsButton);
         menuPanel.add(displayImageButton);
+        menuPanel.add(addImageMenuButton);
 
         functionsButton.addActionListener(e -> {
             mainFrame.setContentPane(mainPanel);
@@ -241,6 +231,12 @@ public class Main {
             mainFrame.revalidate();
         });
 
+        addImageMenuButton.addActionListener(e -> {
+            mainFrame.setContentPane(addImagePanel);
+            mainFrame.repaint();
+            mainFrame.revalidate();
+        });
+
         imageLabelToMenuButton.addActionListener(e -> {
             mainFrame.setContentPane(menuPanel);
             mainFrame.repaint();
@@ -250,6 +246,28 @@ public class Main {
         //display data base panel
         dataBasePanel.add(goToMenuButton);
         dataBasePanel.add(printedDataBaseTextArea);
+
+        //add image panel
+        addImagePanel.setLayout(null);
+        addImagePanel.add(addImageButton);
+        addImagePanel.add(imgNameTxtField);
+        addImagePanel.add(autorTxtField);
+        addImagePanel.add(localizationTxtField);
+        addImagePanel.add(dateTxtField);
+        addImagePanel.add(fileNameTxtField);
+        addImagePanel.add(tagsTxtField);
+        addImagePanel.add(filePathTxtField);
+        addImagePanel.add(chooseFileButton);
+        addImagePanel.add(imgNameTxtFieldLbl);
+        addImagePanel.add(autorTxtFieldLbl);
+        addImagePanel.add(localizationTxtFieldLbl);
+        addImagePanel.add(dateTxtFieldLbl);
+        addImagePanel.add(fileNameTxtFieldLbl);
+        addImagePanel.add(tagsTxtFieldLbl);
+        addImagePanel.add(filePathTxtFieldLbl);
+        //addImagePanel.add(goToMenuButton);
+
+
 
 
 

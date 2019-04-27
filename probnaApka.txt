@@ -4,3 +4,10 @@ hala stulecia.png,google,Wrocław,,koncert,C:\Users\Mattty\Desktop\Moje własne 
 after eats.jpg,9gag,internet,16-04-2018,meme baby gf girl mad moods,C:\Users\Mattty\Desktop\Moje własne 3.0\zdjecia\memes\after eats.jpg
 after eats.jpg,9gag,internet,19-02-2018,hungry angry gf girlfriend food meme,C:\Users\Mattty\Desktop\Moje własne 3.0\zdjecia\memes\after eats.jpg
 
+﻿gurl.jpg,,,,,C:\Users\Mattty\IdeaProjects\ProjektGUIv0.1\Zdjecia\gurl.jpg
+Jesus-2.jpg,Mati,Jeruzalem,1000BC,god heaven Paul koncert,C:\Users\Mattty\Desktop\Moje własne 3.0\Jesus-2.jpg
+hala stulecia.png,google,Wrocław,,koncert,C:\Users\Mattty\Desktop\Moje własne 3.0\zdjecia\hala stulecia.png
+after eats.jpg,9gag,internet,16-04-2018,meme baby gf girl mad moods,C:\Users\Mattty\Desktop\Moje własne 3.0\zdjecia\memes\after eats.jpg
+after eats.jpg,9gag,internet,19-02-2018,hungry angry gf girlfriend food meme,C:\Users\Mattty\Desktop\Moje własne 3.0\zdjecia\memes\after eats.jpg
+
+
