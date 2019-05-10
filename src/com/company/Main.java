@@ -93,7 +93,7 @@ public class Main {
         printDataBaseButton.setBounds(500, loadDataBaseButton.getY()+loadDataBaseButton.getHeight(), 200, 40);
         upgradedPrintDataBaseButton.setBounds(printDataBaseButton.getX() + printDataBaseButton.getWidth(), printDataBaseButton.getY(), 200 , 40);
         findByTagButton.setBounds(500, findByTagTextFiled.getY() + findByTagTextFiled.getHeight(), 280, 40);
-        goToMenuButton.setBounds(500, 400, 200, 40);
+        goToMenuButton.setBounds(100, 100, 200, 40);
         // save data base button and text field
         saveDataBaseToFileButon.setBounds(loadDataBaseButton.getX() + loadDataBaseButton.getWidth(), loadDataBaseButton.getY(), 200, 40);
         saveDataBaseToFileTextField.setBounds(saveDataBaseToFileButon.getX(), saveDataBaseToFileButon.getY() - saveDataBaseToFileButon.getHeight(), 200, 40);
@@ -149,6 +149,8 @@ public class Main {
         //printing data base in TextArea
         upgradedPrintDataBaseButton.addActionListener(e -> {
             printedDataBaseTextArea.setText(new ImgDataBaseManager().getDataBaseHolder());
+           printedDataBaseTextArea.setFont(printedDataBaseTextArea.getFont().deriveFont(20f));
+            printedDataBaseTextArea.setEditable(false);
             mainFrame.setContentPane(dataBasePanel);
             mainFrame.repaint();
             mainFrame.revalidate();
@@ -203,7 +205,7 @@ public class Main {
         displayImageButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         addImageMenuButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
+        menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.PAGE_AXIS));
         menuPanel.add(functionsButton);
         menuPanel.add(displayImageButton);
         menuPanel.add(addImageMenuButton);

@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bb0e559-c6cd-44c8-900b-6754038089b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nowaApka.txt" beforeDir="false" afterPath="$PROJECT_DIR$/nowaApka.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektGUIv0.1/com/company/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektGUIv0.1/com/company/Main$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjektGUIv0.1/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjektGUIv0.1/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/probnaApka.txt" beforeDir="false" afterPath="$PROJECT_DIR$/probnaApka.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-34">
-              <caret line="88" column="122" lean-forward="true" selection-start-line="88" selection-start-column="122" selection-end-line="88" selection-end-column="122" />
+            <state relative-caret-position="202">
+              <caret line="151" column="90" selection-start-line="151" selection-start-column="90" selection-end-line="151" selection-end-column="90" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#313#314#0" expanded="true" />
@@ -35,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/ImgDataBaseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="60" column="135" selection-start-line="60" selection-start-column="135" selection-end-line="60" selection-end-column="135" />
+            <state relative-caret-position="255">
+              <caret line="28" column="97" lean-forward="true" selection-start-line="28" selection-start-column="97" selection-end-line="28" selection-end-column="97" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,6 +52,7 @@
     <findStrings>
       <find>manage</find>
       <find>print</find>
+      <find>dataBasePanel</find>
       <find>textare</find>
     </findStrings>
   </component>
@@ -74,9 +70,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="1417" />
-    <option name="height" value="1038" />
+    <option name="x" value="-10" />
+    <option name="width" value="1419" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -164,24 +160,24 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/ImgDataBaseManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="88" column="122" lean-forward="true" selection-start-line="88" selection-start-column="122" selection-end-line="88" selection-end-column="122" />
+        <state relative-caret-position="255">
+          <caret line="28" column="97" lean-forward="true" selection-start-line="28" selection-start-column="97" selection-end-line="28" selection-end-column="97" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#313#314#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/ImgDataBaseManager.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="60" column="135" selection-start-line="60" selection-start-column="135" selection-end-line="60" selection-end-column="135" />
+        <state relative-caret-position="202">
+          <caret line="151" column="90" selection-start-line="151" selection-start-column="90" selection-end-line="151" selection-end-column="90" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#313#314#0" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
           </folding>
         </state>
       </provider>
