@@ -19,7 +19,7 @@ public class Main {
 
     public static void createAndShowGUI() {
         JFrame mainFrame = new JFrame();
-        JPanel mainPanel = new JPanel();
+        JPanel loadAndPrintDtbPanel = new JPanel();
         JPanel menuPanel = new JPanel();
         JPanel addImagePanel = new JPanel();
         JPanel dataBasePanel = new JPanel();
@@ -57,6 +57,7 @@ public class Main {
         JButton upgradedPrintDataBaseButton = new JButton("Actually print data base");
         JButton goToMenuButton = new JButton("Menu");
         JButton saveDataBaseToFileButon = new JButton("Save data base to file");
+        JButton addImageGoToMenuButton = new JButton("Menu");
 
 
 
@@ -64,8 +65,8 @@ public class Main {
         JTextArea printedDataBaseTextArea = new JTextArea("Here you'll see data base");
         printedDataBaseTextArea.setBackground(null);
         //Positioning panel's elements
-        mainPanel.setLayout(null);
-        mainPanel.setBackground(Color.MAGENTA);
+        loadAndPrintDtbPanel.setLayout(null);
+        loadAndPrintDtbPanel.setBackground(Color.BLUE);
         //positioning Text Fieldss
         imgNameTxtField.setBounds(250, 100, 200, 40);
         autorTxtField.setBounds(imgNameTxtField.getX(), imgNameTxtField.getY() + imgNameTxtField.getHeight(), 200, 40);
@@ -100,16 +101,16 @@ public class Main {
 
         inputLabel.setBounds(500, 210, 200, 40);
 
-        mainPanel.add(inputLabel);
-        mainPanel.add(printDataBaseButton);
-        mainPanel.add(loadDataBaseButton);
-        mainPanel.add(findByTagTextFiled);
-        mainPanel.add(findByTagButton);
-        mainPanel.add(goToMenuButton);
-        mainPanel.add(upgradedPrintDataBaseButton);
-        mainPanel.add(saveDataBaseToFileButon);
-        mainPanel.add(saveDataBaseToFileTextField);
-        mainPanel.add(loadDataBaseTextField);
+        loadAndPrintDtbPanel.add(inputLabel);
+        loadAndPrintDtbPanel.add(printDataBaseButton);
+        loadAndPrintDtbPanel.add(loadDataBaseButton);
+        loadAndPrintDtbPanel.add(findByTagTextFiled);
+        loadAndPrintDtbPanel.add(findByTagButton);
+        loadAndPrintDtbPanel.add(goToMenuButton);
+        loadAndPrintDtbPanel.add(upgradedPrintDataBaseButton);
+        loadAndPrintDtbPanel.add(saveDataBaseToFileButon);
+        loadAndPrintDtbPanel.add(saveDataBaseToFileTextField);
+        loadAndPrintDtbPanel.add(loadDataBaseTextField);
 
 
         //Saving text button functions
@@ -197,21 +198,21 @@ public class Main {
         mainFrame.setVisible(true);
 
         //menu Panel
-        JButton functionsButton = new JButton("Actual fucntions");
+        JButton loadAndPrintDtbButton = new JButton("Load and print data base");
         JButton displayImageButton = new JButton("Display image");
         JButton addImageMenuButton = new JButton("Add image");
 
-        functionsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        loadAndPrintDtbButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         displayImageButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         addImageMenuButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.PAGE_AXIS));
-        menuPanel.add(functionsButton);
+        menuPanel.add(loadAndPrintDtbButton);
         menuPanel.add(displayImageButton);
         menuPanel.add(addImageMenuButton);
 
-        functionsButton.addActionListener(e -> {
-            mainFrame.setContentPane(mainPanel);
+        loadAndPrintDtbButton.addActionListener(e -> {
+            mainFrame.setContentPane(loadAndPrintDtbPanel);
             mainFrame.repaint();
             mainFrame.revalidate();
         });
@@ -246,7 +247,8 @@ public class Main {
         });
 
         //display data base panel
-        dataBasePanel.add(goToMenuButton);
+
+        //dataBasePanel.add(goToMenuButton);
         dataBasePanel.add(printedDataBaseTextArea);
 
         //add image panel
@@ -267,7 +269,15 @@ public class Main {
         addImagePanel.add(fileNameTxtFieldLbl);
         addImagePanel.add(tagsTxtFieldLbl);
         addImagePanel.add(filePathTxtFieldLbl);
-        //addImagePanel.add(goToMenuButton);
+        addImagePanel.add(addImageGoToMenuButton);
+
+        addImageGoToMenuButton.setBounds(500, addImageButton.getY(), 100, 30);
+
+        addImageGoToMenuButton.addActionListener(e -> {
+            mainFrame.setContentPane(menuPanel);
+            mainFrame.repaint();
+            mainFrame.revalidate();
+        });
 
 
 

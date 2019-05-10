@@ -38,8 +38,11 @@ public class ImgDataBaseManager {
 
     public void printDataBase () {
         Scanner scanner = new Scanner(dataBaseHolder);
+        int i = 1;
         while(scanner.hasNextLine()){
+            System.out.print(i + ": ");
             System.out.println(scanner.nextLine());
+            i++;
         }
         scanner.close();
     }
