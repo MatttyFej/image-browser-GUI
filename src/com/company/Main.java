@@ -26,6 +26,8 @@ public class Main {
         JPanel displayImagePanel = new JPanel();
         JLabel inputLabel = new JLabel("You didn't do anything yet!");
 
+        ImgDataBaseManager imgManager = new ImgDataBaseManager();
+
         //Text fields declarations
         JTextField imgNameTxtField = new JTextField();
         JTextField autorTxtField = new JTextField();
@@ -58,6 +60,7 @@ public class Main {
         JButton goToMenuButton = new JButton("Menu");
         JButton saveDataBaseToFileButon = new JButton("Save data base to file");
         JButton addImageGoToMenuButton = new JButton("Menu");
+        JButton printDataBaseGoToMenuButton = new JButton("Menu");
 
 
 
@@ -140,7 +143,7 @@ public class Main {
 
         printDataBaseButton.addActionListener(e -> {
             try {
-                new ImgDataBaseManager().printDataBase();
+                imgManager.printDataBase();
             } catch (Exception e1) {
                 e1.printStackTrace();
                 JOptionPane.showMessageDialog(mainFrame, "Nie wczytano żadnej bazy danych!");
@@ -161,7 +164,7 @@ public class Main {
         loadDataBaseButton.addActionListener(e -> {
             boolean isSuccesful = true;
             try {
-                new ImgDataBaseManager().loadDataBaseToString(loadDataBaseTextField.getText());
+                imgManager.loadDataBaseToArrList(loadDataBaseTextField.getText());
             } catch (IOException e1) {
                 JOptionPane.showMessageDialog(mainFrame, "Nie znaleziono pliku o (nie)podanej nazwie!");
                 isSuccesful = false;
@@ -248,8 +251,14 @@ public class Main {
 
         //display data base panel
 
-        //dataBasePanel.add(goToMenuButton);
         dataBasePanel.add(printedDataBaseTextArea);
+        dataBasePanel.add(printDataBaseGoToMenuButton);
+
+        printDataBaseGoToMenuButton.addActionListener(e -> {
+            mainFrame.setContentPane(menuPanel);
+            mainFrame.repaint();
+            mainFrame.revalidate();
+        });
 
         //add image panel
         addImagePanel.setLayout(null);

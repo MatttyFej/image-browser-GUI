@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -16,6 +17,12 @@ import java.util.regex.Pattern;
 public class ImgDataBaseManager {
 
     private static String dataBaseHolder;
+
+    public ArrayList<String> dataBaseArrList;
+
+    public ImgDataBaseManager () {
+        dataBaseArrList = new ArrayList<String>();
+    }
 
     public String getDataBaseHolder() {
         return dataBaseHolder;
@@ -37,14 +44,9 @@ public class ImgDataBaseManager {
     }
 
     public void printDataBase () {
-        Scanner scanner = new Scanner(dataBaseHolder);
-        int i = 1;
-        while(scanner.hasNextLine()){
-            System.out.print(i + ": ");
-            System.out.println(scanner.nextLine());
-            i++;
+        for(int i = 0; i < this.dataBaseArrList.size(); i++){
+            System.out.println(this.dataBaseArrList.get(i));
         }
-        scanner.close();
     }
 
     public void loadDataBaseToString(String fileName) throws IOException{
@@ -55,6 +57,17 @@ public class ImgDataBaseManager {
         String currentLine;
         while ((currentLine = br.readLine()) != null){
             dataBaseHolder += currentLine + "\n";
+        }
+        br.close();
+    }
+
+    public void loadDataBaseToArrList (String fileName) throws IOException{
+        File file = new File(fileName);
+
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String currentLine;
+        while ((currentLine = br.readLine()) != null){
+            dataBaseArrList.add(currentLine);
         }
         br.close();
     }
